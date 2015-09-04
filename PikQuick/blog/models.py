@@ -28,4 +28,4 @@ class Coment(models.Model):
         return self.content
 
 
->>>>>>> e6c1cf87e696cce669465697b78f57f511bd6229
+
