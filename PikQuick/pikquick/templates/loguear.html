@@ -1,37 +1,31 @@
-<!DOCTYPE html>
+{% extends 'baseUsuario.html' %}
 {% load staticfiles %}
-<html>
 
-    <head>
-
-    </head>
-
-    <body>
-        <div class="card-panel red darken-3 center-align">
-            <div class="card-panel red">
-                Para ver cualquier publicacion, debes ingresar...
-                <div class="container">
-                    <div class="input-field">
-                        <input placeholder="Nombre de usuario" maxlength="30" name="username" id="id_username" type="text" value="">
-                    </div>
-                    <div class="input-field">
-                        <input placeholder="Contraseña" name="password" id="id_password1" type="password" class="validate" value="">
-                    </div>
-                    <div class="right-align">
-                        <a href="{% url 'pikquick:nuevo_usuario' %}" style="color:white">¿No estás registrado? Toca aquí para registrarte.</a><br>
-                        <button class="card-panel red lighten-1 waves-effect waves-orange btn-large" id="log-in">
-                            <i class="fa fa-paper-plane right"></i>Ingresar
-                        </button>
-                    </div>
-                </div>
-
+{% block content %}
+<title>Inicio de Sesión</title>
+<div class="card-panel red darken-3 center-align">
+    <div class="card-panel red">
+        Para ver cualquier publicacion, debes ingresar...
+        <div class="container">
+            <div class="input-field">
+                <input placeholder="Nombre de usuario" maxlength="30" name="username" id="id_username" type="text" value="">
+            </div>
+            <div class="input-field">
+                <input placeholder="Contraseña" name="password" id="id_password1" type="password" class="validate" value="">
+            </div>
+            <div class="right-align">
+                <a href="{% url 'pikquick:nuevo_usuario' %}" style="color:white">¿No estás registrado? Toca aquí para registrarte.</a><br>
+                <button class="card-panel red lighten-1 waves-effect waves-orange btn-large" id="log-in">
+                    <i class="fa fa-paper-plane right"></i>Ingresar
+                </button>
             </div>
         </div>
-    </body>
-</html>
 
+    </div>
+</div>
+{% endblock %}
 
-
+{% block scripts %}
 <script>
     $('.button-collapse').sideNav();
     $(document).ready(function(){
@@ -64,3 +58,4 @@
     });
 
 </script>
+{% endblock %}
