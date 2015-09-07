@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+    <head>
+        <!--Import materialize-->
+        <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+
+        {% block css %}
+
+        {% endblock %}
+
+        <!--optimizacion para moviles-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+
+    <body>
+
+        <header>
+            <nav class="orange lighten-2">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo center"><img src="{% static 'images/logo.png' %}"></img></a>
+                <a href="#" data-activates="mobile-nav" class="right button-collapse"><i class="mdi-navigation-more-vert"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="perfil.html">nicosanchezz_98</a></li>
+
+                </ul>
+                <div class="right">
+                    <form>
+                        <div class="input-field">
+                            <input type="search" id="search-field" class="field" required maxlength="">
+                            <label for="search-field"><i class="mdi-action-search"></i></label>
+                            <i class="mdi-navigation-close close"></i>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </nav>
+        <ul class="side-nav" id="mobile-nav">
+            <li><a href="#"><i class="material-icons">nicosanchezz_98</i></a></li>
+
+        </ul>
+        </header>
+    <!--<div class="page-wrap">
+<nav class="red darken-4" role="navigation">
+<div class="nav-wrapper container">
+<a id="logo-container" href="{% url 'pikquick:inicio' %}" class="truncate brand-logo">PikQuick</a>
+
+<ul class="right hide-on-med-and-down">
+<li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir" href="{% if user.is_authenticated %}{% url 'pikquick:salir_usuario' %}{% else %}#!{% endif %}"><i class="fa fa-sign-out fa-fw"></i></a></li>
+</ul>
+
+<ul class="right hide-on-med-and-down">
+<li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Ajustes" href="{% if user.is_authenticated %}{% url 'pikquick:ajustes' %}{% else %}#!{% endif %}"><i class="fa fa-user"> {{user.username}}</i></a></li>
+</ul>
+
+<ul class="side-nav" style="left: -250px;" id="nav-mobile">
+<li><a class="modal-trigger" href="{% if user.is_authenticated %}{% url 'pikquick:ajustes' %}{% else %}#!{% endif %}}"><i class="fa fa-user"> {{user.username}}</i></a></li>
+</ul>
+
+<ul class="side-nav" style="left: -250px;" id="nav-mobile">
+<li><a class="modal-trigger" href="{% if user.is_authenticated %}{% url 'pikquick:salir_usuario' %}{% else %}#!{% endif %}}"><i class="fa fa-sign-out fa-fw left"></i>Salir</a></li>
+</ul>
+<a class="waves-effect circle button-collapse" style="margin:0 0 0 -50px;" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a></div>
+</nav>
+</div>-->
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="page-footer orange lighten-2">
+        <div class="container">
+            <div class="row">
+                <h5 class="white-text center-align">Sigue a {{user.username}}</h5>
+                <div class="center-align">
+                    <ul>
+                        <a href="https://www.facebook.com" class="waves-effect blue darken-4 btn-large"><i class="fa fa-facebook-official"></i> facebook</a>
+                        <a href="https://twitter.com"class="waves-effect light-blue accent-2 btn-large"><i class="fa fa-twitter"></i>Twitter</a>
+                        <a href="https://instagram.com"class="waves-effect brown btn-large"><i class="fa fa-instagram"></i> INSTAGRAM</a>
+                        <a href="https://plus.google.com"class="waves-effect red btn-large"><i class="fa fa-google-plus-square"></i> GOOGLE+</a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container center-align">
+                © 2015 All rights reserved to PikQuick
+            </div>
+        </div>
+    </footer>
+
+    </body>
+
+<!--Imports (jquery antes que materialize)-->
+<script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+
+{% block scripts %}
+{% endblock %}
+</html>
