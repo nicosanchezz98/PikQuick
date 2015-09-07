@@ -1,6 +1,7 @@
 from django.db import models
 
 # Create your models here.
+
 class User(models.Model):
     name = models.CharField('id', max_length=15, unique=True)
     mail = models.CharField('mail', max_length=30)
@@ -27,3 +28,7 @@ class Coment(models.Model):
         return self.content
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
