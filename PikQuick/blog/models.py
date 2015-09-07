@@ -28,4 +28,7 @@ class Coment(models.Model):
         return self.content
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> FETCH_HEAD
