@@ -1,57 +1,64 @@
-{% extends 'base.html' %}
+{% extends 'baseUsuario.html' %}
+{% load staticfiles %}
+
 {% block content %}
+
+<title>Inicio de Sesión</title>
+
 <div class="card-panel red darken-3 center-align">
     <div class="card-panel red">
-            Para ver cualquier publicacion, debes ingresar...
-            <div class="container">
-                <div class="input-field">
-                    <input placeholder="Nombre de usuario" maxlength="30" name="username" id="id_username" type="text" value="">
-                </div>
-                <div class="input-field">
-                    <input placeholder="Contraseña" name="password" id="id_password1" type="password" class="validate" value="">
-                </div>
-                <div class="right-align">
-                    <a href="{% url 'pikquick:nuevo_usuario' %}" style="color:white">¿No estás registrado? Toca aquí para registrarte.</a><br>
-                    <button class="card-panel red lighten-1 waves-effect waves-orange btn-large" id="log-in">
-                        <i class="fa fa-paper-plane right"></i>Ingresar
-                    </button>
-                </div>
+        Para ver cualquier publicacion, debes ingresar...
+        <div class="container">
+            <div class="input-field">
+                <input placeholder="Nombre de usuario" maxlength="30" name="username" id="id_username" type="text" value="">
             </div>
+            <div class="input-field">
+                <input placeholder="Contraseña" name="password" id="id_password1" type="password" class="validate" value="">
+            </div>
+            <div class="right-align">
+                <a href="{% url 'pikquick:nuevo_usuario' %}" style="color:white">¿No estás registrado? Toca aquí para registrarte.</a><br>
+                <button class="card-panel red lighten-1 waves-effect waves-orange btn-large" id="log-in">
+                    <i class="fa fa-paper-plane right"></i>Ingresar
+                </button>
+            </div>
+        </div>
 
     </div>
 </div>
+
 {% endblock %}
 {% block scripts %}
+
 <script>
-        $('.button-collapse').sideNav();
-        $(document).ready(function(){
-            $('.modal-trigger').leanModal();
-        });
-        $('#log-in').click(function() {
-            console.log("logueando por ajax");
-            var data={
-                csrfmiddlewaretoken: '{{ csrf_token }}',
-                username:$('input:text[name=username]').val(),
-                password:$('input:password[name=password]').val(),
-            }
+    $('.button-collapse').sideNav();
+    $(document).ready(function(){
+        $('.modal-trigger').leanModal();
+    });
+    $('#log-in').click(function() {
+        console.log("logueando por ajax");
+        var data={
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            username:$('input:text[name=username]').val(),
+            password:$('input:password[name=password]').val(),
+        }
 
-            $.ajax({
-                type: "POST",
-                url: "{% url 'pikquick:ingreso_usuario' %}",
-                data: data,
-                statusCode: {
-                    200: function(){
-                        window.location.assign("{% url 'pikquick:inicio' %}");
-                    },
-                    203: function(){
-                        Materialize.toast('Usuario o contraseña incorrectos/inexistentes', 2000);
-                        /* Reseteo de casillas */
-                        $('#id_username').value("");
-                        $('#id_password1').value("");
-                    },
+        $.ajax({
+            type: "POST",
+            url: "{% url 'pikquick:ingreso_usuario' %}",
+            data: data,
+            statusCode: {
+                200: function(){
+                    window.location.assign("{% url 'pikquick:inicio' %}");
                 },
-            });
+                203: function(){
+                    Materialize.toast('Usuario o contraseña incorrectos/inexistentes', 2000);
+                    /* Reseteo de casillas */
+                    $('#id_username').value("");
+                    $('#id_password1').value("");
+                },
+            },
         });
+    });
 
-    </script>
+</script>
 {% endblock %}

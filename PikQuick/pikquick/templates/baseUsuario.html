@@ -5,12 +5,10 @@
     <head>
         <!--Import materialize-->
         <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}"  media="screen,projection"/>
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="icon" type="image/png" href="{% static 'images/miniLogo.png' %}">
         <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
 
         {% block css %}
-
         {% endblock %}
 
         <!--optimizacion para moviles-->
@@ -18,26 +16,12 @@
     </head>
 
     <body>
+
         <div class="page-wrap">
             <nav class="red darken-4" role="navigation">
                 <div class="nav-wrapper container">
-                    <a id="logo-container" href="{% url 'pikquick:inicio' %}" class="truncate brand-logo"><img src="{% static 'images/logo.png' %}"></img></a>
+                    <a id="logo-container" href="{% url 'pikquick:inicio' %}" class="truncate brand-logo center"><img src="{% static 'images/logo.png' %}"></img></a>
 
-                <ul class="right hide-on-med-and-down">
-                    <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir" href="{% if user.is_authenticated %}{% url 'pikquick:salir_usuario' %}{% else %}#!{% endif %}"><i class="fa fa-sign-out fa-fw"></i></a></li>
-                </ul>
-
-                <ul class="right hide-on-med-and-down">
-                    <li><a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Ajustes" href="{% if user.is_authenticated %}{% url 'pikquick:ajustes' %}{% else %}#!{% endif %}"><i class="fa fa-user"> {{user.username}}</i></a></li>
-                </ul>
-
-                <ul class="side-nav" style="left: -250px;" id="nav-mobile">
-                    <li><a class="modal-trigger" href="{% if user.is_authenticated %}{% url 'pikquick:ajustes' %}{% else %}#!{% endif %}}"><i class="fa fa-user"> {{user.username}}</i></a></li>
-                </ul>
-
-                <ul class="side-nav" style="left: -250px;" id="nav-mobile">
-                    <li><a class="modal-trigger" href="{% if user.is_authenticated %}{% url 'pikquick:salir_usuario' %}{% else %}#!{% endif %}}"><i class="fa fa-sign-out fa-fw left"></i>Salir</a></li>
-                </ul>
                 <a class="waves-effect circle button-collapse" style="margin:0 0 0 -50px;" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a></div>
             </nav>
         </div>
@@ -48,7 +32,6 @@
     <footer class="page-footer orange lighten-2">
         <div class="container">
             <div class="row">
-                <h5 class="white-text center-align">Sigue a {{user.username}}</h5>
                 <div class="center-align">
                     <ul>
                         <a href="https://www.facebook.com" class="waves-effect blue darken-4 btn-large"><i class="fa fa-facebook-official"></i> FACEBOOK</a>
