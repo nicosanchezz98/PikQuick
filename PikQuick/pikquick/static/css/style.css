@@ -1,9 +1,8 @@
 body {
-
 }
-
-.title { float:left }
-
+.title {
+  float:left
+}
 
 .input-field input[type=search] {
   display: block;

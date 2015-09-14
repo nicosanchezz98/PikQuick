@@ -1,6 +1,8 @@
 {% extends 'baseUsuario.html' %}
 {% block content %}
+
 <title>Registro</title>
+
 <div class="card-panel red darken-3 center-align">
     <div class="card-panel red">
         <div class="row">
@@ -29,6 +31,7 @@
 
 {% endblock %}
 {% block scripts %}
+
 <script>
     $('input:password[name=password2]').focusout(function(){
         if($('input:password[name=password2]').val()!=""){
